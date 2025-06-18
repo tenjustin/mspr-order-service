@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kawa.OrderServiceAppHost", "src\Kawa.OrderServiceAppHost\Kawa.OrderServiceAppHost.csproj", "{7090226F-84A8-427E-8F35-6B43CA591210}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kawa.OrderService.ServiceDefaults", "src\Kawa.OrderService.ServiceDefaults\Kawa.OrderService.ServiceDefaults.csproj", "{74C65043-8890-46C7-8891-347F3C1ECADA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kawa.OrderService.Api", "src\Kawa.OrderService.Api\Kawa.OrderService.Api.csproj", "{5A46F897-AB5B-4735-A6A3-4FB6FB00F076}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7090226F-84A8-427E-8F35-6B43CA591210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7090226F-84A8-427E-8F35-6B43CA591210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7090226F-84A8-427E-8F35-6B43CA591210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7090226F-84A8-427E-8F35-6B43CA591210}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C65043-8890-46C7-8891-347F3C1ECADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C65043-8890-46C7-8891-347F3C1ECADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C65043-8890-46C7-8891-347F3C1ECADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C65043-8890-46C7-8891-347F3C1ECADA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A46F897-AB5B-4735-A6A3-4FB6FB00F076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A46F897-AB5B-4735-A6A3-4FB6FB00F076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A46F897-AB5B-4735-A6A3-4FB6FB00F076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A46F897-AB5B-4735-A6A3-4FB6FB00F076}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
