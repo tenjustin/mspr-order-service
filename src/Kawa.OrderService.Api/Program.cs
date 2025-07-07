@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
 builder.AddServiceDefaults();
+builder.AddRabbitMQClient("messaging");
 
 var app = builder.Build();
 
