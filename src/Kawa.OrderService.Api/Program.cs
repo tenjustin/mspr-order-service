@@ -1,9 +1,6 @@
 using Kawa.OrderService.Api.Services;
 using Kawa.OrderService.Api.Models;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
+using Kawa.OrderService.Api.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +11,7 @@ builder.Services.AddOpenApi();
 builder.AddServiceDefaults();
 builder.AddRabbitMQClient("messaging");
 
-// Ajouter les contrôleurs à l'application
+// Ajouter les contrï¿½leurs ï¿½ l'application
 builder.Services.AddControllers();
 
 
@@ -22,6 +19,8 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IMessageBrokerService, MessageBrokerService>();
 builder.Services.AddScoped<IMessageHandler<OrderMessage>, OrderMessageHandler>();
 builder.Services.AddHostedService<MessageConsumerService>();
+
+builder.AddNpgsqlDbContext<CommandesDbContext>("order-service-db");
 
 var app = builder.Build();
 

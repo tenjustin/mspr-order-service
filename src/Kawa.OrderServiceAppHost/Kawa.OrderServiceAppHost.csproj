@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Kawa.OrderService.Api\Kawa.OrderService.Api.csproj" />
+      <ProjectReference Include="..\Kawa.OrderService.MigrationsService\Kawa.OrderService.MigrationsService.csproj" />
     </ItemGroup>
 
 </Project>
