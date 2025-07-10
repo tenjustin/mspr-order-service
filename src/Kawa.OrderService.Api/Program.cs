@@ -1,3 +1,9 @@
+using Kawa.OrderService.Api.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +12,12 @@ builder.Services.AddOpenApi();
 
 builder.AddServiceDefaults();
 builder.AddRabbitMQClient("messaging");
+
+// Ajouter les contrôleurs à l'application
+builder.Services.AddControllers();
+
+// Ajouter le service de messagerie
+builder.Services.AddScoped<IMessageBrokerService, MessageBrokerService>();
 
 var app = builder.Build();
 
@@ -17,10 +29,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.MapControllers();
+
 var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
+
 
 app.MapGet("/weatherforecast", () =>
     {
