@@ -1,4 +1,5 @@
 using Kawa.OrderService.Api.Services;
+using Kawa.OrderService.Api.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -16,8 +17,11 @@ builder.AddRabbitMQClient("messaging");
 // Ajouter les contrôleurs à l'application
 builder.Services.AddControllers();
 
-// Ajouter le service de messagerie
+
+// Ajouter les services de messagerie
 builder.Services.AddScoped<IMessageBrokerService, MessageBrokerService>();
+builder.Services.AddScoped<IMessageHandler<OrderMessage>, OrderMessageHandler>();
+builder.Services.AddHostedService<MessageConsumerService>();
 
 var app = builder.Build();
 
