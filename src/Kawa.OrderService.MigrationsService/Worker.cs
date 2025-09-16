@@ -40,8 +40,13 @@ public class Worker : BackgroundService
         }
         catch (Exception ex)
         {
-            activity?.RecordException(ex);
+            activity?.SetStatus(ActivityStatusCode.Error, ex.Message);
+            _logger.LogError(ex, "An error occurred while migrating the database.");
             throw;
+        }
+        finally
+        {
+            activity?.Stop();
         }
 
         _applicationLifetime.StopApplication();
