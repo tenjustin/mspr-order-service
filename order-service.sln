@@ -10,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{85658D5B-B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kawa.OrderService.Api.Test", "test\Kawa.OrderService.Api.Test\Kawa.OrderService.Api.Test.csproj", "{292B11B6-A798-49E6-8EB1-5BB6F8C0ADF6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kawa.OrderService.MigrationsService", "src\Kawa.OrderService.MigrationsService\Kawa.OrderService.MigrationsService.csproj", "{0ABD3D48-879D-46AC-91E8-19D14F68F772}"
 EndProject
 Global
@@ -78,6 +76,5 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{292B11B6-A798-49E6-8EB1-5BB6F8C0ADF6} = {85658D5B-B3B3-4D4C-BCC0-C9D2DCBD0EA3}
-		{0ABD3D48-879D-46AC-91E8-19D14F68F772} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 	EndGlobalSection
 EndGlobal

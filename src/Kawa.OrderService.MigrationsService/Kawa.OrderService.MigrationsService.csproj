@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-Kawa.OrderService.MigrationsService-1cf89ec0-72ff-4477-93da-54f5cab318dd</UserSecretsId>
+    <ContainerRepository>tenjustin/order-service-migrations</ContainerRepository>
+    <ContainerRegistry>ghcr.io</ContainerRegistry>
   </PropertyGroup>
 
   <ItemGroup>

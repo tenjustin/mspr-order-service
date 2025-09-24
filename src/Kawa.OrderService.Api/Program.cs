@@ -1,6 +1,7 @@
 using Kawa.OrderService.Api.Services;
 using Kawa.OrderService.Api.Models;
 using Kawa.OrderService.Api.Database;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,12 @@ builder.Services.AddScoped<IMessageBrokerService, MessageBrokerService>();
 builder.Services.AddScoped<IMessageHandler<OrderMessage>, OrderMessageHandler>();
 builder.Services.AddHostedService<MessageConsumerService>();
 
-builder.AddNpgsqlDbContext<CommandesDbContext>("order-service-db");
+builder.Services.AddDbContext<CommandesDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("order-service-db")));
+
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<CommandesDbContext>("Database")
+    .AddRabbitMQ(builder.Configuration.GetConnectionString("messaging"), name: "rabbitmq");
 
 var app = builder.Build();
 
@@ -34,6 +40,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapControllers();
+app.MapHealthChecks("/healthz");
 
 app.Run();
 
