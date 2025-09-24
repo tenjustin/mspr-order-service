@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "order-chart.fullname" . }}-job
+  labels:
+    {{- include "order-chart.labels" . | nindent 4 }}
+spec:
+  template:
+    metadata:
+      labels:
+        {{- include "order-chart.labels" . | nindent 8 }}
+    spec:
+      restartPolicy: OnFailure
+      imagePullSecrets:
+        {{- toYaml .Values.job.imagePullSecrets | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}-job
+          image: "{{ .Values.job.image.repository }}:{{ .Values.job.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.job.image.pullPolicy }}
+          command: {{- toYaml .Values.job.command | nindent 12 }}
+          args: {{- toYaml .Values.job.args | nindent 12 }}
+          envFrom:
+            {{- range .Values.job.envFromSecrets }}
+            - secretRef:
+                name: {{ . }}   
+            {{- end }}
